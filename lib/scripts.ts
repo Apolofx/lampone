@@ -1,7 +1,7 @@
-import { exec } from "child_process";
+import { exec, execSync } from "child_process";
 
 function SetPrettier(){
-    exec('npm install -D prettier')   
+    execSync('npm install -D prettier',{stdio:[0,1,2]})   
     // exec('npm install -D prettier')   
     // exec('npm install -D prettier')   
 }
