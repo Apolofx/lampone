@@ -1,6 +1,6 @@
 {
   "name": "lampone",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Usefull boilerplate for node projects",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
