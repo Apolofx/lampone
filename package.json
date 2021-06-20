@@ -21,8 +21,6 @@
   "devDependencies": {
     "@types/figlet": "^1.5.1",
     "@types/node": "^15.12.4",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
     "prettier": "^2.3.1"
   },
   "bin": "./dist/index.js",
