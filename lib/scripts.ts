@@ -1,9 +1,6 @@
 import { execSync } from "child_process";
 import fs from "fs";
 
-const rawPackageJSON = fs.readFileSync(`package.json`);
-const packageJSON = JSON.parse(rawPackageJSON.toString());
-
 //---PRETTIER---//
 function SetPrettier(precommit = false) {
   //setup precommit
@@ -11,10 +8,14 @@ function SetPrettier(precommit = false) {
     //TODO check for husky and lint-staged already in package.json
     execSync("npm install --save-dev husky lint-staged", { stdio: [0, 1, 2] });
     execSync("npx husky install", { stdio: [0, 1, 2] });
-    packageJSON["scripts"]["prepare"] = "husky install";
     execSync("npx husky add .husky/pre-commit 'npx lint-staged'", {
       stdio: [0, 1, 2],
     });
+
+    //TODO make helper in order not to override edits made by npm scripts
+    const rawPackageJSON = fs.readFileSync(`package.json`);
+    const packageJSON = JSON.parse(rawPackageJSON.toString());
+    packageJSON["scripts"]["prepare"] = "husky install";
     packageJSON["lint-staged"] = {
       "**/*": "prettier --write --ignore-unknown",
     };
