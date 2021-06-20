@@ -1,21 +1,11 @@
 import { execSync } from "child_process";
 import fs from "fs";
 
+const rawPackageJSON = fs.readFileSync(`package.json`);
+const packageJSON = JSON.parse(rawPackageJSON.toString());
+
 //---PRETTIER---//
 function SetPrettier(precommit = false) {
-  const rawPackageJSON = fs.readFileSync(`package.json`);
-  const packageJSON = JSON.parse(rawPackageJSON.toString());
-  //install
-  execSync("npm install -D prettier", { stdio: [0, 1, 2] });
-
-  //create prettier config and prettier ignore
-  const ignored = "node_modules\nbuild\ndist\ncoverage\nassets";
-  fs.writeFileSync(".prettierrc.json", JSON.stringify({}));
-  fs.writeFileSync(".prettierignore", ignored);
-
-  //format already written code
-  execSync("npx prettier --write .", { stdio: [0, 1, 2] });
-
   //setup precommit
   if (precommit) {
     //TODO check for husky and lint-staged already in package.json
@@ -33,6 +23,16 @@ function SetPrettier(precommit = false) {
     };
     fs.writeFileSync("package.json", JSON.stringify(packageJSON));
   }
+  //install
+  execSync("npm install -D prettier", { stdio: [0, 1, 2] });
+
+  //create prettier config and prettier ignore
+  const ignored = "node_modules\nbuild\ndist\ncoverage\nassets";
+  fs.writeFileSync(".prettierrc.json", JSON.stringify({}));
+  fs.writeFileSync(".prettierignore", ignored);
+
+  //format already written code
+  execSync("npx prettier --write .", { stdio: [0, 1, 2] });
 }
 
 export { SetPrettier };
