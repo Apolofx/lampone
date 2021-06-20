@@ -9,14 +9,15 @@ function SetPrettier(precommit = false) {
     execSync("npm install --save-dev husky lint-staged", { stdio: [0, 1, 2] });
     execSync("npx husky install", { stdio: [0, 1, 2] });
 
-    //TODO check if pre-commit .sh is already created to prevent duplicated npx scripts
-    execSync("npx husky add .husky/pre-commit 'npx lint-staged'", {
-      stdio: [0, 1, 2],
-    });
+    const huskyPrecommit = fs.readFileSync(".husky/pre-commit").toString();
+    !huskyPrecommit.includes("npx lint-staged") &&
+      execSync("npx husky add .husky/pre-commit 'npx lint-staged'", {
+        stdio: [0, 1, 2],
+      });
 
     //TODO make helper in order not to override edits made by npm scripts
-    const rawPackageJSON = fs.readFileSync(`package.json`);
-    const packageJSON = JSON.parse(rawPackageJSON.toString());
+    const bufferedJSON = fs.readFileSync(`package.json`);
+    const packageJSON = JSON.parse(bufferedJSON.toString());
     packageJSON["scripts"]["prepare"] = "husky install";
     packageJSON["lint-staged"] = {
       "**/*": "prettier --write --ignore-unknown",
