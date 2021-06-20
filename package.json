@@ -5,9 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
-    "build": "npm run clean && npx tsc",
-    "prepare": "husky install",
-    "prepared": "husky install"
+    "build": "npm run clean && npx tsc"
   },
   "keywords": [
     "boilerplate",

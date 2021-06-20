@@ -11,8 +11,8 @@ function SetPrettier(precommit = false) {
     //TODO check for husky and lint-staged already in package.json
     execSync("npm install --save-dev husky lint-staged", { stdio: [0, 1, 2] });
     execSync("npx husky install", { stdio: [0, 1, 2] });
-    if (!packageJSON["scripts"]["prepared"]) {
-      packageJSON["scripts"]["prepared"] = "husky install";
+    if (!packageJSON["scripts"]["prepare"]) {
+      packageJSON["scripts"]["prepare"] = "husky install";
     }
     execSync("npx husky add .husky/pre-commit 'npx lint-staged'", {
       stdio: [0, 1, 2],
@@ -21,9 +21,10 @@ function SetPrettier(precommit = false) {
     packageJSON["lint-staged"] = {
       "**/*": "prettier --write --ignore-unknown",
     };
+
     fs.writeFileSync("package.json", JSON.stringify(packageJSON));
   }
-  //install
+  //install prettier
   execSync("npm install -D prettier", { stdio: [0, 1, 2] });
 
   //create prettier config and prettier ignore
