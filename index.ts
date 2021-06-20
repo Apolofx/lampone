@@ -3,13 +3,13 @@ import figlet from "figlet";
 import { SetPrettier } from "./lib/scripts";
 
 console.log(
-  figlet.textSync("Jaime", {
+  figlet.textSync("Lampone", {
     font: "Larry 3D",
     horizontalLayout: "default",
     verticalLayout: "default",
     width: 80,
     whitespaceBreak: true,
-  }),
+  })
 );
 
 const precommit = Boolean(process.argv[2]);
