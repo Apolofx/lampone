@@ -4,7 +4,8 @@ import figlet from "figlet";
 import { clear } from "console";
 import { SetPrettier } from "./lib/scripts";
 import { Argv } from "types";
-
+//TODO add menu to choose between scripts
+//if not script-specific flag in cli args is present
 clear();
 console.log(
   figlet.textSync("Lampone", {
@@ -18,6 +19,3 @@ console.log(
 
 const args: Argv = minimist(process.argv.slice(2));
 SetPrettier(args["pre-commit"]);
-
-//TODO use yarg or any other library to parse cli args
-//TODO add cli to set script options

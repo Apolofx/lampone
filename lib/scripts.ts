@@ -5,7 +5,6 @@ import fs from "fs";
 function SetPrettier(precommit = false) {
   //setup precommit
   if (precommit) {
-    //TODO check for husky and lint-staged already in package.json
     execSync("npm install --save-dev husky lint-staged", { stdio: [0, 1, 2] });
     execSync("npx husky install", { stdio: [0, 1, 2] });
 
@@ -15,6 +14,7 @@ function SetPrettier(precommit = false) {
         stdio: [0, 1, 2],
       });
 
+    //TODO check for husky and lint-staged already in package.json
     //TODO make helper in order not to override edits made by npm scripts
     const bufferedJSON = fs.readFileSync(`package.json`);
     const packageJSON = JSON.parse(bufferedJSON.toString());
