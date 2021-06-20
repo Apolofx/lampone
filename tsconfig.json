@@ -71,14 +71,10 @@
 //   }
 // }
 
-
-
 {
   "compilerOptions": {
     "target": "ES5",
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
     "outDir": "./dist",
     "rootDir": "./",
     "baseUrl": "./",
@@ -92,6 +88,6 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   }
 }

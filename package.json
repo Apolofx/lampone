@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
-    "build": "npm run clean && npx tsc"
+    "build": "npm run clean && npx tsc",
+    "prepare": "husky install",
+    "prepared": "husky install"
   },
   "keywords": [
     "boilerplate",
@@ -19,10 +21,15 @@
     "typescript": "^4.3.4"
   },
   "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.3.1"
   },
   "bin": "./dist/index.js",
   "files": [
     "dist"
-  ]
+  ],
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
 }
