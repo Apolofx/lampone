@@ -46,8 +46,6 @@ if (Object.keys(args).length < 2) {
     })
     .catch((error) => {
       if (error.isTtyError) {
-        console.log("couldn't be rendered in the current environment");
-        // Prompt
       } else {
         console.error("Something went wrong");
       }
