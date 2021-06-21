@@ -2,7 +2,7 @@ import { execSync } from "child_process";
 import fs from "fs";
 
 //---PRETTIER---//
-function SetPrettier(precommit = false) {
+function SetPrettier(precommit = false): void {
   //setup precommit
   if (precommit) {
     execSync("npm install --save-dev husky lint-staged", { stdio: [0, 1, 2] });
