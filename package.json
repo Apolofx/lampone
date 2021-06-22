@@ -8,7 +8,7 @@
     "build": "npm run clean && npx tsc",
     "prepare": "husky install"
   },
-  "repository": "https://github.com/Apolofx/lampone",
+  "repository": "https://github.com/Apolofx/lampone.git",
   "keywords": [
     "boilerplate",
     "npm",
