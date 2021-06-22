@@ -1,3 +1,5 @@
+![prod workflow](https://github.com/apolofx/lampone/actions/workflows/ci.yml/badge.svg)
+
 # Lampone
 
 ## _JavaScript/NodeJS CLI ToolKit_
