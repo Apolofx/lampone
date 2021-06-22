@@ -1,4 +1,6 @@
+![version](https://img.shields.io/github/package-json/v/apolofx/lampone?color=blue)
 ![prod workflow](https://github.com/apolofx/lampone/actions/workflows/ci.yml/badge.svg)
+![npm](https://img.shields.io/npm/v/lampone?color=%23c40b0a&logo=npm)
 
 # Lampone
 
