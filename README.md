@@ -2,6 +2,18 @@
 ![prod workflow](https://github.com/apolofx/lampone/actions/workflows/ci.yml/badge.svg)
 ![npm](https://img.shields.io/npm/v/lampone?color=%23c40b0a&logo=npm)
 
+```
+ __
+/\ \
+\ \ \         __      ___ ___   _____     ___     ___      __
+ \ \ \  __  /'__`\  /' __` __`\/\ '__`\  / __`\ /' _ `\  /'__`\
+  \ \ \L\ \/\ \L\.\_/\ \/\ \/\ \ \ \L\ \/\ \L\ \/\ \/\ \/\  __/
+   \ \____/\ \__/.\_\ \_\ \_\ \_\ \ ,__/\ \____/\ \_\ \_\ \____\
+    \/___/  \/__/\/_/\/_/\/_/\/_/\ \ \/  \/___/  \/_/\/_/\/____/
+                                  \ \_\
+                                   \/_/
+```
+
 # Lampone
 
 ## _JavaScript/NodeJS CLI ToolKit_
@@ -14,8 +26,10 @@
 
 ### Usage (no installation needed)
 
-`npx lampone`
+`npx lampone` _runs prettier on every file and set up prettierrc.json_
 
-![lampone](img/cli.png)
+or
+
+`npx lampone --pre-commit` _installs prettier, husky and lint staged to format code on every commit_
 
 ![lampone](img/lampo.png)

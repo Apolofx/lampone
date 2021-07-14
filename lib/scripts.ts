@@ -8,7 +8,9 @@ function SetPrettier(precommit = false): void {
     execSync("npm install --save-dev husky lint-staged", { stdio: [0, 1, 2] });
     execSync("npx husky install", { stdio: [0, 1, 2] });
 
-    const huskyPrecommit = fs.readFileSync(".husky/pre-commit").toString();
+    const huskyPrecommit = fs.existsSync(".husky/pre-commit")
+      ? fs.readFileSync(".husky/pre-commit").toString()
+      : "";
     !huskyPrecommit.includes("npx lint-staged") &&
       execSync("npx husky add .husky/pre-commit 'npx lint-staged'", {
         stdio: [0, 1, 2],

@@ -1,11 +1,12 @@
 {
   "name": "lampone",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Usefull boilerplate for node projects",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
     "build": "npm run clean && npx tsc",
+    "smoke": "npm run build && node dist/index.js --pre-commit",
     "prepare": "husky install"
   },
   "repository": "https://github.com/Apolofx/lampone.git",
@@ -29,8 +30,8 @@
     "@types/minimist": "^1.2.1",
     "@types/node": "^15.12.4",
     "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.1"
+    "lint-staged": "^11.0.1",
+    "prettier": "^2.3.2"
   },
   "bin": "./dist/index.js",
   "files": [
