@@ -30,6 +30,6 @@
 
 or
 
-`npx lampone --pre-commit` _installs prettier, husky and lint staged to format code on every commit_
+`npx lampone --precommit` _installs prettier, husky and lint staged to format code on every commit_
 
 ![lampone](img/lampo.png)
