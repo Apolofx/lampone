@@ -1,5 +1,8 @@
 import fs from "fs";
+import figlet from "figlet";
+import { clear } from "console";
 import { PackageJson } from "type-fest";
+import chalk from "chalk";
 
 interface CustomPackageJSON extends PackageJson {
   "lint-staged": string;
@@ -16,4 +19,19 @@ function editPacakgeJson(
   fs.writeFileSync("package.json", JSON.stringify(packageJSON));
 }
 
-export { editPacakgeJson };
+function initCLI() {
+  clear();
+  console.log(
+    chalk.yellow(
+      figlet.textSync("Lampone", {
+        font: "Larry 3D",
+        horizontalLayout: "default",
+        verticalLayout: "default",
+        width: 80,
+        whitespaceBreak: true,
+      })
+    )
+  );
+}
+
+export { editPacakgeJson, initCLI };
