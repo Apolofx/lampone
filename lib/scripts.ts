@@ -1,8 +1,7 @@
 import { execSync } from "child_process";
 import fs from "fs";
 
-//---PRETTIER---//
-function SetPrettier(precommit = false): void {
+function SetPrettier({ precommit = false, format = false } = {}): void {
   //setup precommit
   if (precommit) {
     execSync("npm install --save-dev husky lint-staged", { stdio: [0, 1, 2] });
@@ -11,7 +10,7 @@ function SetPrettier(precommit = false): void {
     const huskyPrecommit = fs.existsSync(".husky/pre-commit")
       ? fs.readFileSync(".husky/pre-commit").toString()
       : "";
-    !huskyPrecommit.includes("npx lint-staged") &&
+    if (!huskyPrecommit.includes("npx lint-staged"))
       execSync("npx husky add .husky/pre-commit 'npx lint-staged'", {
         stdio: [0, 1, 2],
       });
@@ -35,7 +34,7 @@ function SetPrettier(precommit = false): void {
   fs.writeFileSync(".prettierignore", ignored);
 
   //format already written code
-  execSync("npx prettier --write .", { stdio: [0, 1, 2] });
+  if (format) execSync("npx prettier --write .", { stdio: [0, 1, 2] });
 }
 
 export { SetPrettier };

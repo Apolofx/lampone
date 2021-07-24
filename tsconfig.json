@@ -73,11 +73,11 @@
 
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
     "lib": ["ESNext"],
     "outDir": "./dist",
     "rootDir": "./",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
