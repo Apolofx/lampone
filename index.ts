@@ -1,24 +1,17 @@
 #!/usr/bin/env node
 import minimist, { ParsedArgs } from "minimist";
-import figlet from "figlet";
-import { clear } from "console";
 import { SetPrettier } from "./lib/scripts";
+import { initCLI } from "./lib/helpers";
 import { Argv } from "types";
 import inquirer from "inquirer";
+import { debug } from "./lib/config";
 
-clear();
+//TODO put questions array on a separate file inquirer.ts
 
-console.log(
-  figlet.textSync("Lampone", {
-    font: "Larry 3D",
-    horizontalLayout: "default",
-    verticalLayout: "default",
-    width: 80,
-    whitespaceBreak: true,
-  })
-);
+initCLI();
 
 const args: Argv = minimist(process.argv.slice(2));
+debug(args);
 if (Object.keys(args).length < 2) {
   inquirer
     .prompt([
@@ -51,5 +44,6 @@ if (Object.keys(args).length < 2) {
       }
     });
 } else {
-  SetPrettier(args["pre-commit"]);
+  // If there are non-default arguments present in argv run CLI
+  SetPrettier({ format: args["format"], precommit: args["precommit"] });
 }
