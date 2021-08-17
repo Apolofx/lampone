@@ -4,8 +4,7 @@
   "description": "Usefull boilerplate for node projects",
   "scripts": {
     "dev": "ts-node-dev -r dotenv/config index.ts",
-    "test": "jest --verbose",
-    "test:coverage": "jest --coverage --verbose",
+    "test": "jest --coverage --verbose",
     "clean": "rm -rf dist",
     "build": "npm run clean && npx tsc",
     "prepare": "husky install"
