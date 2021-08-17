@@ -89,5 +89,6 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true
-  }
+  },
+  "exclude": ["node_modules", "dist", "tests"]
 }
