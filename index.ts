@@ -5,6 +5,7 @@ import { initCLI } from "./lib/helpers";
 import { Argv } from "types";
 import { debug } from "./lib/config";
 import { askSelectedTools } from "./lib/inquirer";
+import { PRETTIER } from "./lib/constants";
 
 initCLI();
 const args: Argv = minimist(process.argv.slice(2));
@@ -15,7 +16,7 @@ async function main() {
     try {
       const answers = await askSelectedTools();
       debug(JSON.stringify(answers, null, 2));
-      answers["selected-tools"].includes("Prettier") && SetPrettier();
+      answers["selected-tools"].includes(PRETTIER) && SetPrettier();
     } catch (error) {
       if (error.isTtyError) {
       } else {

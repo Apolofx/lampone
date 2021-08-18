@@ -1,4 +1,5 @@
 import inquirer from "inquirer";
+import * as constants from "./constants";
 
 const askSelectedTools = () => {
   const questions = [
@@ -9,13 +10,13 @@ const askSelectedTools = () => {
       choices: [
         new inquirer.Separator(" --- Tools --- "),
         {
-          name: "Prettier",
+          name: constants.PRETTIER,
         },
         // {
-        //   name: "Typescript",
+        //   name: constants.TYPESCRIPT,
         // },
         // {
-        //   name: "gitignore",
+        //   name: constants.GITIGNORE,
         // },
       ],
     },
