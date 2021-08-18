@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "ts-node-dev -r dotenv/config index.ts",
     "test": "jest --coverage --verbose",
+    "test-watch": "jest --coverage --watch --verbose",
     "clean": "rm -rf dist",
     "build": "npm run clean && npx tsc",
     "prepare": "husky install"
